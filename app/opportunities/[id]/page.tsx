@@ -149,6 +149,14 @@ export default function OpportunityDetailsPage() {
                         <Trash2 className="w-4 h-4" />
                         Delete
                     </button>
+
+                    <Link
+                        href={`/opportunities/${opportunity.id}/edit`}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium transition border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
+                    >
+                        Edit
+                    </Link>
+
                 </div>
             </div>
 

@@ -28,9 +28,3 @@ Information about opportunities in Afghanistan is often scattered across differe
 - Context API + LocalStorage
 - Lucide React (Icons)
 
-## How to Run Locally
-
-1. Clone the repository:
-```bash
-git clone https://github.com/YOUR_USERNAME/kaaryab-afghanistan.git
-cd kaaryab-afghanistan

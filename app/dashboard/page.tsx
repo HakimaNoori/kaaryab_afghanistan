@@ -1,12 +1,14 @@
 "use client";
 
 import { useOpportunities } from "@/context/OpportunitiesContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { Briefcase, GraduationCap, Laptop, Clock, MapPin, Plus } from "lucide-react";
 import Link from "next/link";
 import { isExpiringSoon, formatDate } from "@/lib/utils";
 
 export default function DashboardPage() {
     const { opportunities } = useOpportunities();
+    const { t } = useLanguage();
 
     const total = opportunities.length;
     const jobs = opportunities.filter((o) => o.category === "Job").length;
@@ -20,31 +22,30 @@ export default function DashboardPage() {
         .slice(0, 5);
 
     const stats = [
-        { label: "Total Opportunities", value: total, icon: Briefcase, color: "bg-blue-500" },
-        { label: "Jobs", value: jobs, icon: Briefcase, color: "bg-indigo-500" },
-        { label: "Internships", value: internships, icon: Laptop, color: "bg-purple-500" },
-        { label: "Scholarships", value: scholarships, icon: GraduationCap, color: "bg-green-500" },
-        { label: "Remote", value: remote, icon: MapPin, color: "bg-teal-500" },
-        { label: "Expiring Soon", value: expiringSoon, icon: Clock, color: "bg-orange-500" },
+        { label: t.dashboard.total, value: total, icon: Briefcase, color: "bg-blue-500" },
+        { label: t.dashboard.jobs, value: jobs, icon: Briefcase, color: "bg-indigo-500" },
+        { label: t.dashboard.internships, value: internships, icon: Laptop, color: "bg-purple-500" },
+        { label: t.dashboard.scholarships, value: scholarships, icon: GraduationCap, color: "bg-green-500" },
+        { label: t.dashboard.remote, value: remote, icon: MapPin, color: "bg-teal-500" },
+        { label: t.dashboard.expiringSoon, value: expiringSoon, icon: Clock, color: "bg-orange-500" },
     ];
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
                 <div>
-                    <h1 className="text-3xl font-bold mb-1">Dashboard</h1>
-                    <p className="text-gray-600 dark:text-gray-400">Overview of all opportunities</p>
+                    <h1 className="text-3xl font-bold mb-1">{t.dashboard.title}</h1>
+                    <p className="text-gray-600 dark:text-gray-400">{t.dashboard.subtitle}</p>
                 </div>
                 <Link
                     href="/add-opportunity"
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition"
                 >
                     <Plus className="w-4 h-4" />
-                    Add Opportunity
+                    {t.dashboard.add}
                 </Link>
             </div>
 
-            {/* Stats Cards */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
                 {stats.map((stat) => (
                     <div
@@ -60,10 +61,9 @@ export default function DashboardPage() {
                 ))}
             </div>
 
-            {/* Recent Opportunities */}
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
                 <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-800">
-                    <h2 className="font-semibold text-lg">Recent Opportunities</h2>
+                    <h2 className="font-semibold text-lg">{t.dashboard.recent}</h2>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="w-full text-sm">

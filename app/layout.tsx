@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { SavedProvider } from "@/context/SavedContext";
 import { OpportunitiesProvider } from "@/context/OpportunitiesContext";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,16 +23,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100`}>
-        <ThemeProvider>
-          <OpportunitiesProvider>
-            <SavedProvider>
-              <Navbar />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </SavedProvider>
-          </OpportunitiesProvider>
-        </ThemeProvider>
+      <body
+        className={`${inter.className} min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100`}
+      >
+        <LanguageProvider>
+          <ThemeProvider>
+            <OpportunitiesProvider>
+              <SavedProvider>
+                <Navbar />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </SavedProvider>
+            </OpportunitiesProvider>
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

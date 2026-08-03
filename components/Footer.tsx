@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Briefcase } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+    const { t } = useLanguage();
+
     return (
         <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -12,46 +17,50 @@ export default function Footer() {
                             KaarYab Afghanistan
                         </div>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            Helping Afghan youth discover jobs, internships, scholarships and remote opportunities in one place.
+                            {t.footer.description}
                         </p>
                     </div>
 
                     <div>
-                        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Quick Links</h3>
+                        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+                            {t.footer.quickLinks}
+                        </h3>
                         <ul className="space-y-2 text-sm">
                             <li>
                                 <Link href="/opportunities" className="text-gray-600 dark:text-gray-400 hover:text-blue-600">
-                                    Opportunities
+                                    {t.nav.opportunities}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/saved" className="text-gray-600 dark:text-gray-400 hover:text-blue-600">
-                                    Saved
+                                    {t.nav.saved}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/add-opportunity" className="text-gray-600 dark:text-gray-400 hover:text-blue-600">
-                                    Add Opportunity
+                                    {t.nav.addOpportunity}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/about" className="text-gray-600 dark:text-gray-400 hover:text-blue-600">
-                                    About
+                                    {t.nav.about}
                                 </Link>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Note</h3>
+                        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+                            {t.footer.note}
+                        </h3>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            This is a demo project for educational purposes. Data shown is sample data.
+                            {t.footer.demoNote}
                         </p>
                     </div>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
-                    © {new Date().getFullYear()} KaarYab Afghanistan. Built for learning purposes.
+                    © {new Date().getFullYear()} KaarYab Afghanistan. {t.footer.copyright}
                 </div>
             </div>
         </footer>
