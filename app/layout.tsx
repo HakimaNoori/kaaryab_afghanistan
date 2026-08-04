@@ -7,6 +7,10 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import { SavedProvider } from "@/context/SavedContext";
 import { OpportunitiesProvider } from "@/context/OpportunitiesContext";
 import { LanguageProvider } from "@/context/LanguageContext";
+import "@fontsource/vazirmatn/400.css";
+import "@fontsource/vazirmatn/500.css";
+import "@fontsource/vazirmatn/600.css";
+import "@fontsource/vazirmatn/700.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.className} min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100`}
+        style={{ fontFamily: "Vazirmatn, Inter, sans-serif" }}
       >
         <LanguageProvider>
           <ThemeProvider>

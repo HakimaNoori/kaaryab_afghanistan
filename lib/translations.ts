@@ -49,6 +49,18 @@ export const translations = {
             cancel: "Cancel",
             loading: "Loading...",
         },
+        card: {
+            viewDetails: "View Details",
+            expiringSoon: "Expiring Soon",
+            expired: "Expired",
+            remote: "Remote",
+            onsite: "On-site",
+            hybrid: "Hybrid",
+        },
+        filters: {
+            all: "All",
+            location: "Location...",
+        },
         saved: {
             title: "Saved Opportunities",
             subtitle: "Opportunities you have bookmarked for later",
@@ -87,8 +99,7 @@ export const translations = {
                 "Helping Afghan youth discover jobs, internships, scholarships and remote opportunities in one place.",
             quickLinks: "Quick Links",
             note: "Note",
-            demoNote:
-                "This is a demo project for educational purposes. Data shown is sample data.",
+            demoNote: "This is a demo project for educational purposes. Data shown is sample data.",
             copyright: "Built for learning purposes.",
         },
     },
@@ -141,6 +152,18 @@ export const translations = {
             cancel: "لغو",
             loading: "در حال بارگذاری...",
         },
+        card: {
+            viewDetails: "مشاهده جزئیات",
+            expiringSoon: "به زودی منقضی",
+            expired: "منقضی شده",
+            remote: "ریموت",
+            onsite: "حضوری",
+            hybrid: "ترکیبی",
+        },
+        filters: {
+            all: "همه",
+            location: "مکان...",
+        },
         saved: {
             title: "فرصت‌های ذخیره‌شده",
             subtitle: "فرصت‌هایی که برای بعد ذخیره کرده‌اید",
@@ -179,8 +202,7 @@ export const translations = {
                 "کمک به جوانان افغان برای پیدا کردن شغل، کارآموزی، بورسیه و فرصت‌های ریموت در یک جا.",
             quickLinks: "لینک‌های سریع",
             note: "توجه",
-            demoNote:
-                "این یک پروژه نمایشی برای اهداف آموزشی است. داده‌ها نمونه هستند.",
+            demoNote: "این یک پروژه نمایشی برای اهداف آموزشی است. داده‌ها نمونه هستند.",
             copyright: "ساخته شده برای یادگیری.",
         },
     },
@@ -233,6 +255,18 @@ export const translations = {
             cancel: "لغوه",
             loading: "بارېږي...",
         },
+        card: {
+            viewDetails: "تفصیلات وګورئ",
+            expiringSoon: "نږدې پای ته رسېږي",
+            expired: "پای ته رسېدلی",
+            remote: "ریموټ",
+            onsite: "په ځای",
+            hybrid: "ګډ",
+        },
+        filters: {
+            all: "ټول",
+            location: "ځای...",
+        },
         saved: {
             title: "خوندي شوي فرصتونه",
             subtitle: "هغه فرصتونه چې تاسو خوندي کړي",
@@ -254,8 +288,7 @@ export const translations = {
         },
         about: {
             title: "د کارياب افغانستان په اړه",
-            subtitle:
-                "یوه پلیټفارم چې د افغان ځوانانو سره مرسته کوي معناداره فرصتونه ومومي.",
+            subtitle: "یوه پلیټفارم چې د افغان ځوانانو سره مرسته کوي معناداره فرصتونه ومومي.",
         },
         contact: {
             title: "اړیکه",
@@ -271,8 +304,7 @@ export const translations = {
                 "د افغان ځوانانو سره مرسته د دندو، انټرنشپونو، سکالرشیپونو او ریموټ فرصتونو موندلو کې.",
             quickLinks: "چټک لینکونه",
             note: "یادونه",
-            demoNote:
-                "دا د زده کړې لپاره یو ډیمو پروژه ده. معلومات نمونه‌يي دي.",
+            demoNote: "دا د زده کړې لپاره یو ډیمو پروژه ده. معلومات نمونه‌يي دي.",
             copyright: "د زده کړې لپاره جوړ شوی.",
         },
     },

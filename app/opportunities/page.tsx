@@ -25,7 +25,7 @@ export default function OpportunitiesPage() {
     const searchParams = useSearchParams();
     const { opportunities } = useOpportunities();
     const { setAllOpportunities } = useSaved();
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     const [search, setSearch] = useState("");
     const [category, setCategory] = useState("All");
@@ -40,6 +40,28 @@ export default function OpportunitiesPage() {
         const cat = searchParams.get("category");
         if (cat) setCategory(cat);
     }, [searchParams]);
+
+    // برچسب‌های ترجمه‌شده برای فیلترها
+    const categoryLabels: Record<string, string> = {
+        All: language === "fa" ? "همه" : language === "ps" ? "ټول" : "All",
+        Job: language === "fa" ? "شغل" : language === "ps" ? "دنده" : "Job",
+        Internship: language === "fa" ? "کارآموزی" : language === "ps" ? "انټرنشپ" : "Internship",
+        Scholarship: language === "fa" ? "بورسیه" : language === "ps" ? "سکالرشیپ" : "Scholarship",
+        "Online Course": language === "fa" ? "دوره آنلاین" : language === "ps" ? "آنلاین کورس" : "Online Course",
+        "Remote Work": language === "fa" ? "کار ریموت" : language === "ps" ? "ریموټ کار" : "Remote Work",
+        "Training Program": language === "fa" ? "برنامه آموزشی" : language === "ps" ? "روزنیز پروګرام" : "Training Program",
+        "Volunteer Work": language === "fa" ? "کار داوطلبانه" : language === "ps" ? "رضاکارانه کار" : "Volunteer Work",
+    };
+
+    const typeLabels: Record<string, string> = {
+        All: language === "fa" ? "همه" : language === "ps" ? "ټول" : "All",
+        Remote: language === "fa" ? "ریموت" : language === "ps" ? "ریموټ" : "Remote",
+        "On-site": language === "fa" ? "حضوری" : language === "ps" ? "په ځای" : "On-site",
+        Hybrid: language === "fa" ? "ترکیبی" : language === "ps" ? "ګډ" : "Hybrid",
+    };
+
+    const locationPlaceholder =
+        language === "fa" ? "مکان..." : language === "ps" ? "ځای..." : "Location...";
 
     const filtered = useMemo(() => {
         return opportunities.filter((op) => {
@@ -73,7 +95,7 @@ export default function OpportunitiesPage() {
                         placeholder={t.opportunities.searchPlaceholder}
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
                 </div>
 
@@ -86,29 +108,33 @@ export default function OpportunitiesPage() {
                     <select
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
-                        className="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                         {categories.map((c) => (
-                            <option key={c} value={c}>{c}</option>
+                            <option key={c} value={c}>
+                                {categoryLabels[c]}
+                            </option>
                         ))}
                     </select>
 
                     <select
                         value={type}
                         onChange={(e) => setType(e.target.value)}
-                        className="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                         {types.map((item) => (
-                            <option key={item} value={item}>{item}</option>
+                            <option key={item} value={item}>
+                                {typeLabels[item]}
+                            </option>
                         ))}
                     </select>
 
                     <input
                         type="text"
-                        placeholder="Location..."
+                        placeholder={locationPlaceholder}
                         value={location}
                         onChange={(e) => setLocation(e.target.value)}
-                        className="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
                 </div>
             </div>
