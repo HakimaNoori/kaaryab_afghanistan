@@ -4,7 +4,7 @@
 KaarYab Afghanistan is a modern web application that helps Afghan youth discover jobs, internships, scholarships, remote work, online courses, and skill-building opportunities in one place.
 
 ## Live Demo
-[Add your Vercel link here]
+https://kaaryab-afghanistan-7u2s.vercel.app
 
 ## GitHub Repository
 https://github.com/HakimaNoori/kaaryab_afghanistan
