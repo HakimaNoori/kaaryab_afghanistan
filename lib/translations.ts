@@ -310,4 +310,12 @@ export const translations = {
     },
 } as const;
 
-export type TranslationKeys = typeof translations.en;
+type DeepStringify<T> = {
+    [K in keyof T]: T[K] extends string
+    ? string
+    : T[K] extends Record<string, unknown>
+    ? DeepStringify<T[K]>
+    : T[K];
+};
+
+export type TranslationKeys = DeepStringify<typeof translations.en>;

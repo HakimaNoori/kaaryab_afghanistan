@@ -31,7 +31,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
     };
 
-    const t = translations[language];
+    const t = translations[language] as TranslationKeys;
     const dir = language === "en" ? "ltr" : "rtl";
 
     return (
